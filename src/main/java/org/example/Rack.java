@@ -7,11 +7,11 @@ import java.util.List;
 public class Rack {
 
     private final List<Integer> balls;
-    private final AddSorter<Integer> sorter;
+    private final ListAddSorter<Integer> sorter;
 
     public Rack() {
         balls = new ArrayList<>();
-        sorter = new AddSorter<>();
+        sorter = new AscendingListAddSorter<>();
     }
 
     public void add(int newBall) {

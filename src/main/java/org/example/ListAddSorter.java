@@ -2,9 +2,9 @@ package org.example;
 
 import java.util.List;
 
-public class AddSorter<T extends Comparable> {
+public abstract class ListAddSorter<T extends Comparable> {
 
-    public AddSorter() {
+    public ListAddSorter() {
     }
 
     public void addSorted(List<T> existingList, T newValue) {
@@ -12,9 +12,9 @@ public class AddSorter<T extends Comparable> {
             existingList.add(newValue);
         } else {
             for (int i = 0; i < existingList.size(); i++) {
-                T existingBall = existingList.get(i);
+                T existingValue = existingList.get(i);
 
-                if (newValue.compareTo(existingBall) < 0) {
+                if (isOrdered(existingValue, newValue)) {
                     existingList.add(i, newValue);
                     break;
                 } else if (i == existingList.size() - 1) {
@@ -24,4 +24,6 @@ public class AddSorter<T extends Comparable> {
             }
         }
     }
+
+    public abstract boolean isOrdered(T existingValue, T newValue);
 }

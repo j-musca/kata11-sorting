@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 public class TextBox {
 
     private final List<Character> characters;
-    private final AddSorter<Character> sorter;
+    private final ListAddSorter<Character> sorter;
 
     public TextBox(String text) {
         characters = new ArrayList<>(text.length());
-        sorter = new AddSorter<>();
+        sorter = new AscendingListAddSorter<>();
         text.toLowerCase().replaceAll("[^a-z]", "").chars().forEach(this::add);
 
     }
